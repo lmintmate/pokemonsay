@@ -44,7 +44,9 @@ pokemon_images=$(
 	gsed -nr 's;^.*<img alt="(.*)" src="//(cdn.bulbagarden.net/upload/.*\.png)" width="40" height="40" />.*$;\1=\2;p' \
 )
 
+IFS=$'\n'
 for line in $pokemon_images; do
+    echo $line
 	pokemon_name="${line%=*}"
 	pokemon_url="${line#*=}"
 
